@@ -18,11 +18,13 @@ jobs:
           python-version: 2.7.18
       - uses: actions/setup-node@v3
         with:
+          always-auth: true
           node-version: 16
           registry-url: https://registry.npmjs.org/
           scope: '@adileo'
       - run: npm i node-sass@6.0.1 --force
       - run: npm run build
+      - run: npm adduser --registry=https://registry.npmjs.org/
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
