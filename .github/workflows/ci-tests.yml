@@ -20,6 +20,4 @@ jobs:
           path: node_modules
           key: dependencies
       - run: npm i
-      - run: npm run lint
-      - run: npm run test
 
