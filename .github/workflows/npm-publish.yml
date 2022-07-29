@@ -8,23 +8,7 @@ on:
     types: [created]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4.1.0
-        with:
-          python-version: 2.7.18
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm i node-sass@6.0.1 
-      - run: npm ci
-      - run: npm test
-
   publish-npm:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -36,8 +20,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm i node-sass@6.0.1 
-      - run: npm ci
+      - run: npm i node-sass@6.0.1 --force
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
