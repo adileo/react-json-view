@@ -74,7 +74,7 @@ export default class extends React.PureComponent {
                 <ObjectName {...this.props} />
 
                 <span>
-                    <VariableMeta size={src.length} {...this.props} />
+                    <VariableMeta customMeta={this.props.customMeta} size={src.length} {...this.props} />
                 </span>
                 {[...Array(groups)].map((_, i) => (
                     <div

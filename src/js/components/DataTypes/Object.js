@@ -130,10 +130,10 @@ class RjvObject extends React.PureComponent {
     };
 
     getObjectMetaData = src => {
-        const { rjvId, theme } = this.props;
+        const { rjvId, theme, customMeta } = this.props;
         const { size, hovered } = this.state;
         return (
-            <VariableMeta rowHovered={hovered} size={size} {...this.props} />
+            <VariableMeta customMeta={customMeta} rowHovered={hovered} size={size} {...this.props} />
         );
     };
 

@@ -112,6 +112,7 @@ export default class extends React.PureComponent {
             onDelete,
             onAdd,
             enableClipboard,
+            customMeta,
             src,
             namespace,
             rowHovered
@@ -134,6 +135,7 @@ export default class extends React.PureComponent {
                         {...{ src, theme, namespace }}
                     />
                 ) : null}
+                {customMeta ? <customMeta rowHovered={rowHovered} {...{ src, theme, namespace }}></customMeta> : null}
                 {/* copy add/remove icons */}
                 {onAdd !== false ? this.getAddAttribute(rowHovered) : null}
                 {onDelete !== false ? this.getRemoveObject(rowHovered) : null}
