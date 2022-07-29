@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+          scope: '@adileo'
       - run: npm i node-sass@6.0.1 --force
       - run: npm run build
       - run: npm publish
