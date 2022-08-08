@@ -117,6 +117,7 @@ export default class extends React.PureComponent {
             namespace,
             rowHovered
         } = this.props;
+        const CustomMeta = customMeta;
         return (
             <div
                 {...Theme(theme, 'object-meta-data')}
@@ -135,11 +136,11 @@ export default class extends React.PureComponent {
                         {...{ src, theme, namespace }}
                     />
                 ) : null}
-                {customMeta ? (
-                    <customMeta
+                {CustomMeta ? (
+                    <CustomMeta
                     rowHovered={rowHovered}
                     {...{ src, theme, namespace }}
-                    ></customMeta>
+                    ></CustomMeta>
                 ) : null}
                 {/* copy add/remove icons */}
                 {onAdd !== false ? this.getAddAttribute(rowHovered) : null}
